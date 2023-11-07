@@ -14,8 +14,5 @@ use App\Http\Controllers\pageController;
 */
 
 
-Route::get('{any}', function () {
-    return view('welcome');
-})->where('any','.*');
-
-Route::get('/',[pageController::class,'showuser']);
+Route::get('/', [HomeController::class, 'index']);
+Route::match(['get', 'post'], '/signup', [HomeController::class, 'signup']);
